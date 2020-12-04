@@ -1,0 +1,6 @@
+{
+    // to see the test log messages
+    "go.testFlags": [
+        "-v"
+    ]
+}
