@@ -11,14 +11,6 @@ func TestDayFive(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	// inputData2, err := readFileAsStrings("day_04_test_input.txt")
-	// if err != nil {
-	// 	t.Error(err)
-	// }
-	// if len(inputData) == 0 || len(inputData2) == 0 {
-	// 	// t.Fatalf("check")
-	// 	t.Logf("check")
-	// }
 
 	max := -1
 	seatIds := make([]int, len(inputData))
