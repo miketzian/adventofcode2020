@@ -35,6 +35,34 @@ func readFileAsInts(name string) ([]int, error) {
 	return output, nil
 }
 
+func readFileAsInt64s(name string) ([]int64, error) {
+	// name of a file in this package
+	file, err := os.Open(name)
+	if err != nil {
+		return nil, err
+	}
+	defer func() {
+		if err = file.Close(); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	scanner := bufio.NewScanner(file)
+
+	output := make([]int64, 0)
+	for scanner.Scan() {
+		v, err := strconv.ParseInt(scanner.Text(), 10, 64)
+		if err != nil {
+			return nil, err
+		}
+		output = append(output, v)
+	}
+	if scanner.Err() != nil {
+		return nil, scanner.Err()
+	}
+	return output, nil
+}
+
 func readFileAsStrings(name string) ([]string, error) {
 	// name of a file in this package
 	file, err := os.Open(name)
