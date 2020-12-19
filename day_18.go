@@ -94,7 +94,7 @@ func day18Line(input string, part2 bool) (int, error) {
 				return 0, err
 			}
 			if group.head == nil {
-				return val, nil
+				return 0, fmt.Errorf("mismatched parenthesis too many ')'")
 			}
 			group = group.head
 			group.data += fmt.Sprintf("%d", val)
@@ -103,7 +103,7 @@ func day18Line(input string, part2 bool) (int, error) {
 		}
 	}
 	if group.head != nil {
-		return 0, fmt.Errorf("Mismatched parenthesis")
+		return 0, fmt.Errorf("mismatched parenthesis too many '('")
 	}
 	nextVal, err := calcFn(group.data)
 	if err != nil {
