@@ -7,6 +7,26 @@ import (
 	"strconv"
 )
 
+func reverseString(s string) string {
+	rns := []rune(s) // convert to rune
+	for i, j := 0, len(rns)-1; i < j; i, j = i+1, j-1 {
+
+		// swap the letters of the string,
+		// like first with last and so on.
+		rns[i], rns[j] = rns[j], rns[i]
+	}
+	// return the reversed string.
+	return string(rns)
+}
+func reverseStringArray(arr []string) {
+	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
+
+		// swap the letters of the string,
+		// like first with last and so on.
+		arr[i], arr[j] = arr[j], arr[i]
+	}
+}
+
 func readFileAsInts(name string) ([]int, error) {
 	// name of a file in this package
 	file, err := os.Open(name)
